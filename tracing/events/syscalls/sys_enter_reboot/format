@@ -1,0 +1,15 @@
+name: sys_enter_reboot
+ID: 257
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:int magic1;	offset:12;	size:4;	signed:0;
+	field:int magic2;	offset:16;	size:4;	signed:0;
+	field:unsigned int cmd;	offset:20;	size:4;	signed:0;
+	field:void * arg;	offset:24;	size:4;	signed:0;
+
+print fmt: "magic1: 0x%04lx, magic2: 0x%04lx, cmd: 0x%04lx, arg: 0x%04lx", ((unsigned long)(REC->magic1)), ((unsigned long)(REC->magic2)), ((unsigned long)(REC->cmd)), ((unsigned long)(REC->arg))

@@ -1,0 +1,14 @@
+name: sys_enter_mq_getsetattr
+ID: 993
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:mqd_t mqdes;	offset:12;	size:4;	signed:0;
+	field:const struct mq_attr * u_mqstat;	offset:16;	size:4;	signed:0;
+	field:struct mq_attr * u_omqstat;	offset:20;	size:4;	signed:0;
+
+print fmt: "mqdes: 0x%04lx, u_mqstat: 0x%04lx, u_omqstat: 0x%04lx", ((unsigned long)(REC->mqdes)), ((unsigned long)(REC->u_mqstat)), ((unsigned long)(REC->u_omqstat))

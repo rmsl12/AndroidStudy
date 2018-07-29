@@ -1,0 +1,14 @@
+name: sys_enter_madvise
+ID: 546
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:unsigned long start;	offset:12;	size:4;	signed:0;
+	field:size_t len_in;	offset:16;	size:4;	signed:0;
+	field:int behavior;	offset:20;	size:4;	signed:0;
+
+print fmt: "start: 0x%04lx, len_in: 0x%04lx, behavior: 0x%04lx", ((unsigned long)(REC->start)), ((unsigned long)(REC->len_in)), ((unsigned long)(REC->behavior))

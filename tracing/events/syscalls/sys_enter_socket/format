@@ -1,0 +1,14 @@
+name: sys_enter_socket
+ID: 1186
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:int family;	offset:12;	size:4;	signed:0;
+	field:int type;	offset:16;	size:4;	signed:0;
+	field:int protocol;	offset:20;	size:4;	signed:0;
+
+print fmt: "family: 0x%04lx, type: 0x%04lx, protocol: 0x%04lx", ((unsigned long)(REC->family)), ((unsigned long)(REC->type)), ((unsigned long)(REC->protocol))

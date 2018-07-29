@@ -1,0 +1,13 @@
+name: sys_enter_stat64
+ID: 632
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:const char * filename;	offset:12;	size:4;	signed:0;
+	field:struct stat64 * statbuf;	offset:16;	size:4;	signed:0;
+
+print fmt: "filename: 0x%04lx, statbuf: 0x%04lx", ((unsigned long)(REC->filename)), ((unsigned long)(REC->statbuf))

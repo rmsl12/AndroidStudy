@@ -1,0 +1,16 @@
+name: sys_enter_perf_event_open
+ID: 459
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:struct perf_event_attr * attr_uptr;	offset:12;	size:4;	signed:0;
+	field:pid_t pid;	offset:16;	size:4;	signed:0;
+	field:int cpu;	offset:20;	size:4;	signed:0;
+	field:int group_fd;	offset:24;	size:4;	signed:0;
+	field:unsigned long flags;	offset:28;	size:4;	signed:0;
+
+print fmt: "attr_uptr: 0x%04lx, pid: 0x%04lx, cpu: 0x%04lx, group_fd: 0x%04lx, flags: 0x%04lx", ((unsigned long)(REC->attr_uptr)), ((unsigned long)(REC->pid)), ((unsigned long)(REC->cpu)), ((unsigned long)(REC->group_fd)), ((unsigned long)(REC->flags))

@@ -1,0 +1,16 @@
+name: sys_enter_llseek
+ID: 622
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:unsigned int fd;	offset:12;	size:4;	signed:0;
+	field:unsigned long offset_high;	offset:16;	size:4;	signed:0;
+	field:unsigned long offset_low;	offset:20;	size:4;	signed:0;
+	field:loff_t * result;	offset:24;	size:4;	signed:0;
+	field:unsigned int whence;	offset:28;	size:4;	signed:0;
+
+print fmt: "fd: 0x%04lx, offset_high: 0x%04lx, offset_low: 0x%04lx, result: 0x%04lx, whence: 0x%04lx", ((unsigned long)(REC->fd)), ((unsigned long)(REC->offset_high)), ((unsigned long)(REC->offset_low)), ((unsigned long)(REC->result)), ((unsigned long)(REC->whence))

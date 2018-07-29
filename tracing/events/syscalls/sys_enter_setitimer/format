@@ -1,0 +1,14 @@
+name: sys_enter_setitimer
+ID: 346
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:int which;	offset:12;	size:4;	signed:0;
+	field:struct itimerval * value;	offset:16;	size:4;	signed:0;
+	field:struct itimerval * ovalue;	offset:20;	size:4;	signed:0;
+
+print fmt: "which: 0x%04lx, value: 0x%04lx, ovalue: 0x%04lx", ((unsigned long)(REC->which)), ((unsigned long)(REC->value)), ((unsigned long)(REC->ovalue))

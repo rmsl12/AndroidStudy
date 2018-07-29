@@ -1,0 +1,14 @@
+name: sys_enter_setresgid
+ID: 233
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:gid_t rgid;	offset:12;	size:4;	signed:0;
+	field:gid_t egid;	offset:16;	size:4;	signed:0;
+	field:gid_t sgid;	offset:20;	size:4;	signed:0;
+
+print fmt: "rgid: 0x%04lx, egid: 0x%04lx, sgid: 0x%04lx", ((unsigned long)(REC->rgid)), ((unsigned long)(REC->egid)), ((unsigned long)(REC->sgid))

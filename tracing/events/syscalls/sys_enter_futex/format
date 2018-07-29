@@ -1,0 +1,17 @@
+name: sys_enter_futex
+ID: 370
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:u32 * uaddr;	offset:12;	size:4;	signed:0;
+	field:int op;	offset:16;	size:4;	signed:0;
+	field:u32 val;	offset:20;	size:4;	signed:0;
+	field:struct timespec * utime;	offset:24;	size:4;	signed:0;
+	field:u32 * uaddr2;	offset:28;	size:4;	signed:0;
+	field:u32 val3;	offset:32;	size:4;	signed:0;
+
+print fmt: "uaddr: 0x%04lx, op: 0x%04lx, val: 0x%04lx, utime: 0x%04lx, uaddr2: 0x%04lx, val3: 0x%04lx", ((unsigned long)(REC->uaddr)), ((unsigned long)(REC->op)), ((unsigned long)(REC->val)), ((unsigned long)(REC->utime)), ((unsigned long)(REC->uaddr2)), ((unsigned long)(REC->val3))

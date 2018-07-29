@@ -1,0 +1,14 @@
+name: sys_enter_sigprocmask
+ID: 147
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:int how;	offset:12;	size:4;	signed:0;
+	field:old_sigset_t * nset;	offset:16;	size:4;	signed:0;
+	field:old_sigset_t * oset;	offset:20;	size:4;	signed:0;
+
+print fmt: "how: 0x%04lx, nset: 0x%04lx, oset: 0x%04lx", ((unsigned long)(REC->how)), ((unsigned long)(REC->nset)), ((unsigned long)(REC->oset))

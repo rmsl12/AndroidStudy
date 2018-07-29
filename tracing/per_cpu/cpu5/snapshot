@@ -1,0 +1,12 @@
+# tracer: function_graph
+#
+#
+# * Snapshot is freed *
+#
+# Snapshot commands:
+# echo 0 > snapshot : Invalid for per_cpu snapshot file.
+# echo 1 > snapshot : Allocates snapshot buffer, if not already allocated.
+#                      Takes a snapshot of the main buffer for this cpu.
+# echo 2 > snapshot : Clears this cpu's snapshot buffer (but does not allocate)
+#                      (Doesn't have to be '2' works with any number that
+#                       is not a '0' or '1')

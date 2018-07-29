@@ -1,0 +1,16 @@
+name: sys_enter_mount
+ID: 722
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:char * dev_name;	offset:12;	size:4;	signed:0;
+	field:char * dir_name;	offset:16;	size:4;	signed:0;
+	field:char * type;	offset:20;	size:4;	signed:0;
+	field:unsigned long flags;	offset:24;	size:4;	signed:0;
+	field:void * data;	offset:28;	size:4;	signed:0;
+
+print fmt: "dev_name: 0x%04lx, dir_name: 0x%04lx, type: 0x%04lx, flags: 0x%04lx, data: 0x%04lx", ((unsigned long)(REC->dev_name)), ((unsigned long)(REC->dir_name)), ((unsigned long)(REC->type)), ((unsigned long)(REC->flags)), ((unsigned long)(REC->data))

@@ -1,0 +1,17 @@
+name: sys_enter_ipc
+ID: 991
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:unsigned int call;	offset:12;	size:4;	signed:0;
+	field:int first;	offset:16;	size:4;	signed:0;
+	field:unsigned long second;	offset:20;	size:4;	signed:0;
+	field:unsigned long third;	offset:24;	size:4;	signed:0;
+	field:void * ptr;	offset:28;	size:4;	signed:0;
+	field:long fifth;	offset:32;	size:4;	signed:0;
+
+print fmt: "call: 0x%04lx, first: 0x%04lx, second: 0x%04lx, third: 0x%04lx, ptr: 0x%04lx, fifth: 0x%04lx", ((unsigned long)(REC->call)), ((unsigned long)(REC->first)), ((unsigned long)(REC->second)), ((unsigned long)(REC->third)), ((unsigned long)(REC->ptr)), ((unsigned long)(REC->fifth))

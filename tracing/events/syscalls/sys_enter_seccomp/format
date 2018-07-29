@@ -1,0 +1,14 @@
+name: sys_enter_seccomp
+ID: 429
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:unsigned int op;	offset:12;	size:4;	signed:0;
+	field:unsigned int flags;	offset:16;	size:4;	signed:0;
+	field:const char * uargs;	offset:20;	size:4;	signed:0;
+
+print fmt: "op: 0x%04lx, flags: 0x%04lx, uargs: 0x%04lx", ((unsigned long)(REC->op)), ((unsigned long)(REC->flags)), ((unsigned long)(REC->uargs))

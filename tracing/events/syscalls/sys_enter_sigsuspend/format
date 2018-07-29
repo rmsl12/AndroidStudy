@@ -1,0 +1,14 @@
+name: sys_enter_sigsuspend
+ID: 131
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:int unused1;	offset:12;	size:4;	signed:0;
+	field:int unused2;	offset:16;	size:4;	signed:0;
+	field:old_sigset_t mask;	offset:20;	size:4;	signed:0;
+
+print fmt: "unused1: 0x%04lx, unused2: 0x%04lx, mask: 0x%04lx", ((unsigned long)(REC->unused1)), ((unsigned long)(REC->unused2)), ((unsigned long)(REC->mask))

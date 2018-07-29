@@ -1,0 +1,17 @@
+name: sys_enter_splice
+ID: 782
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:int fd_in;	offset:12;	size:4;	signed:0;
+	field:loff_t * off_in;	offset:16;	size:4;	signed:0;
+	field:int fd_out;	offset:20;	size:4;	signed:0;
+	field:loff_t * off_out;	offset:24;	size:4;	signed:0;
+	field:size_t len;	offset:28;	size:4;	signed:0;
+	field:unsigned int flags;	offset:32;	size:4;	signed:0;
+
+print fmt: "fd_in: 0x%04lx, off_in: 0x%04lx, fd_out: 0x%04lx, off_out: 0x%04lx, len: 0x%04lx, flags: 0x%04lx", ((unsigned long)(REC->fd_in)), ((unsigned long)(REC->off_in)), ((unsigned long)(REC->fd_out)), ((unsigned long)(REC->off_out)), ((unsigned long)(REC->len)), ((unsigned long)(REC->flags))

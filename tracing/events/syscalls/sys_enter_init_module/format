@@ -1,0 +1,14 @@
+name: sys_enter_init_module
+ID: 416
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:void * umod;	offset:12;	size:4;	signed:0;
+	field:unsigned long len;	offset:16;	size:4;	signed:0;
+	field:const char * uargs;	offset:20;	size:4;	signed:0;
+
+print fmt: "umod: 0x%04lx, len: 0x%04lx, uargs: 0x%04lx", ((unsigned long)(REC->umod)), ((unsigned long)(REC->len)), ((unsigned long)(REC->uargs))

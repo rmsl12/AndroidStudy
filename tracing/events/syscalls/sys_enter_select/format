@@ -1,0 +1,16 @@
+name: sys_enter_select
+ID: 708
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:int n;	offset:12;	size:4;	signed:0;
+	field:fd_set * inp;	offset:16;	size:4;	signed:0;
+	field:fd_set * outp;	offset:20;	size:4;	signed:0;
+	field:fd_set * exp;	offset:24;	size:4;	signed:0;
+	field:struct timeval * tvp;	offset:28;	size:4;	signed:0;
+
+print fmt: "n: 0x%04lx, inp: 0x%04lx, outp: 0x%04lx, exp: 0x%04lx, tvp: 0x%04lx", ((unsigned long)(REC->n)), ((unsigned long)(REC->inp)), ((unsigned long)(REC->outp)), ((unsigned long)(REC->exp)), ((unsigned long)(REC->tvp))

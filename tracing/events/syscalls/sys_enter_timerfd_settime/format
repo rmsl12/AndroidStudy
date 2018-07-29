@@ -1,0 +1,15 @@
+name: sys_enter_timerfd_settime
+ID: 844
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:int ufd;	offset:12;	size:4;	signed:0;
+	field:int flags;	offset:16;	size:4;	signed:0;
+	field:const struct itimerspec * utmr;	offset:20;	size:4;	signed:0;
+	field:struct itimerspec * otmr;	offset:24;	size:4;	signed:0;
+
+print fmt: "ufd: 0x%04lx, flags: 0x%04lx, utmr: 0x%04lx, otmr: 0x%04lx", ((unsigned long)(REC->ufd)), ((unsigned long)(REC->flags)), ((unsigned long)(REC->utmr)), ((unsigned long)(REC->otmr))

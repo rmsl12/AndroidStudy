@@ -1,0 +1,15 @@
+name: sys_enter_timer_settime
+ID: 362
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:timer_t timer_id;	offset:12;	size:4;	signed:0;
+	field:int flags;	offset:16;	size:4;	signed:0;
+	field:const struct itimerspec * new_setting;	offset:20;	size:4;	signed:0;
+	field:struct itimerspec * old_setting;	offset:24;	size:4;	signed:0;
+
+print fmt: "timer_id: 0x%04lx, flags: 0x%04lx, new_setting: 0x%04lx, old_setting: 0x%04lx", ((unsigned long)(REC->timer_id)), ((unsigned long)(REC->flags)), ((unsigned long)(REC->new_setting)), ((unsigned long)(REC->old_setting))

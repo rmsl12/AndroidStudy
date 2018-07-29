@@ -1,0 +1,16 @@
+name: sys_enter_waitid
+ID: 112
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:int which;	offset:12;	size:4;	signed:0;
+	field:pid_t upid;	offset:16;	size:4;	signed:0;
+	field:struct siginfo * infop;	offset:20;	size:4;	signed:0;
+	field:int options;	offset:24;	size:4;	signed:0;
+	field:struct rusage * ru;	offset:28;	size:4;	signed:0;
+
+print fmt: "which: 0x%04lx, upid: 0x%04lx, infop: 0x%04lx, options: 0x%04lx, ru: 0x%04lx", ((unsigned long)(REC->which)), ((unsigned long)(REC->upid)), ((unsigned long)(REC->infop)), ((unsigned long)(REC->options)), ((unsigned long)(REC->ru))

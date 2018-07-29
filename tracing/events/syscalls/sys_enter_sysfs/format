@@ -1,0 +1,14 @@
+name: sys_enter_sysfs
+ID: 718
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int nr;	offset:8;	size:4;	signed:1;
+	field:int option;	offset:12;	size:4;	signed:0;
+	field:unsigned long arg1;	offset:16;	size:4;	signed:0;
+	field:unsigned long arg2;	offset:20;	size:4;	signed:0;
+
+print fmt: "option: 0x%04lx, arg1: 0x%04lx, arg2: 0x%04lx", ((unsigned long)(REC->option)), ((unsigned long)(REC->arg1)), ((unsigned long)(REC->arg2))
